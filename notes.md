@@ -38,14 +38,29 @@ G0 F6000 X10 Y10 ; Go back home
 M84 X Y ; Disable X & Y motors, not sure why, but cura does it
 ```
 
-Go to the lab
 
-1. Connect one of the part cooling fan ports to relay.
+1. find the right audio jack
 
-2. make sure the connectivity works like you think it does
+2. fun times!
 
-3. try to move the dang thing
 
-4. find the right barrel jack
 
-5. fun times!
+print speed:
+
+
+
+
+Monolith Erection and Organization Worker
+
+******** Computer Operated Monolith Erection
+**** Computer Organized Monolith Erection
+
+Monolith Incubation and Layering Komputer
+
+Mother Of Monoliths
+
+
+Monolith Organiztion Methodology
+&
+Pneumatically Operated Printing (System)
+
