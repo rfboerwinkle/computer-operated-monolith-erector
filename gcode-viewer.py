@@ -1,19 +1,51 @@
+#!/usr/bin/env python3
+
 import sys
+
+if len(sys.argv) < 2:
+  print("Please provide a filename!")
+  quit()
 
 import pygame
 from pygame import gfxdraw
 pygame.init()
-screenx = 700
-screeny = 700
+screenx = 880
+screeny = 880
 screen = pygame.display.set_mode((screenx, screeny),16)
 while not pygame.display.get_active():
   time.sleep(0.1)
 pygame.display.set_caption("gcode viewer")
 clock = pygame.time.Clock()
 
+print("\nBe aware, the size of the screen and placement of monoliths is offset from the real size / placement.\nProvide \"auto\" after the filename to auto-step!\n")
+
 gcode = open(sys.argv[1], "r").read().split("\n")
+if "auto" in sys.argv[2:]:
+  increment = 30
+else:
+  increment = 0
 gcodeIndex = 0
 
+def n():
+  global gcodeIndex, gcode, update
+  gcodeIndex += 1
+  if gcodeIndex >= len(gcode):
+    gcodeIndex = len(gcode)-1
+    print("End")
+  else:
+    update = True
+    print(gcode[gcodeIndex])
+def p():
+  global gcodeIndex, gcode, update
+  gcodeIndex -= 1
+  if gcodeIndex < 0:
+    gcodeIndex = 0
+    print("Start")
+  else:
+    update = True
+    print(gcode[gcodeIndex])
+
+count = 0
 while True:
   clock.tick(60)
   update = False
@@ -23,21 +55,14 @@ while True:
       quit()
     elif event.type == pygame.KEYDOWN:
       if event.key == pygame.K_RIGHT:
-        gcodeIndex += 1
-        if gcodeIndex >= len(gcode):
-          gcodeIndex = len(gcode)-1
-          print("End")
-        else:
-          update = True
-          print(gcode[gcodeIndex])
+        n()
       elif event.key == pygame.K_LEFT:
-        gcodeIndex -= 1
-        if gcodeIndex < 0:
-          gcodeIndex = 0
-          print("Start")
-        else:
-          update = True
-          print(gcode[gcodeIndex])
+        p()
+
+  count += increment
+  if count >= 100:
+    count %= 100
+    n()
 
   colors = {}
 
@@ -78,7 +103,7 @@ while True:
           if not trans:
             continue
           c = feedToColor(f)
-          circleThings = (int(x*10), int(y*10), int(z*10), c)
+          circleThings = (int(x*4), int(y*4), int(z*4), c)
           if lineI == gcodeIndex:
             print("     ",x,y,z,f)
             pygame.gfxdraw.circle(screen, 500,500,10,(0,0,0))

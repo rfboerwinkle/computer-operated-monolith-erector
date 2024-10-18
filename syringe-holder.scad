@@ -20,6 +20,7 @@ dist34 = 14.3; R = 14.3; // might be wrong
 syringeZ = (E+9)/2 + 2;
 sup = 40; // syringe support
 
+rotate([90,0,0])
 difference(){
     // main body object
     union(){
