@@ -88,8 +88,12 @@ Sets the maximum printable y coordinate, in millimeters. No restrictions in plac
 
 # Examples
 
+The default values are probably what you want. The default gcode file has been generated, and the output is `Monos-V2.gcode` (moved to `examples/Monos-V2.gcode`).
+
+`python3 ChemE-slicer.py Monos-V2.gcode`
+
 The following 2 commands are identical, they print 4 monoliths with 10mm of spacing between them. They are outputted to a file named `my-monos.gcode`.
 
-`python ChemE-slicer.py my-monos.gcode --monoliths=4 -S=20`
+`python3 ChemE-slicer.py my-monos.gcode --monoliths=4 -S=20`
 
-`python ChemE-slicer.py my-monos.gcode -m=4 --monolith-spacing=20`
+`python3 ChemE-slicer.py my-monos.gcode -m=4 --monolith-spacing=20`
