@@ -1,18 +1,10 @@
-# Introduction
-
-Hello! If you're familiar with Chem E Cube and Python, you can skip to the "Usage" section.
-
 # Chem E Cube
 
 Chem E Cube is a competition put on by AIChE. We have a competition team at my university. This is software written for custom hardware they have.
 
-# Python
-
-I'll fill this section out later...
-
 # Hardware
 
-The machine is a modified Creality Ender-3. When I found it, it was in a non-functional state. I believe something was shorting, so I unplugged everything except for the screen and X/Y/Z steppers/limit switches. In place of the part fan (KFAN-2) I have plugged in some custom electronics. The fan wires were soldered to the coil pins of a relay (Ningbo Songle Relay SRD-24VDC-SL-C). The normally open and common contact pins were soldered to the two parts of a mono audio jack (the jack was actually stereo, but the 2 segments furthest from the tip were joined at the end of the wire). This jack is then plugged into the pressure regulator (LOCTITE digital syringe dispensor 98666) in place of the foot pedal. The dispensor has to be in manual mode. The syringe is mounted to the head of the printer with a custom printed part (`syringe-holder.stl`). The firmware is unchanged. There are pictures of the setup in `pictures/`.
+The machine is a modified Creality Ender-3. When I found it, it was in a non-functional state. I believe something was shorting, so I unplugged everything except for the screen and X/Y/Z steppers/limit switches. In place of the part fan (KFAN-2) I have plugged in some custom electronics. The fan wires were soldered to the coil pins of a relay (Ningbo Songle Relay SRD-24VDC-SL-C). The normally open and common contact pins were soldered to the two parts of a mono audio jack (the jack was actually stereo, but the 2 segments furthest from the tip were joined at the end of the wire). This jack is then plugged into the pressure regulator (LOCTITE digital syringe dispenser 98666) in place of the foot pedal. The dispenser has to be in manual mode. The syringe is mounted to the head of the printer with a custom printed part (`syringe-holder.stl`). The firmware is unchanged. There are pictures of the setup in `pictures/`.
 
 # Additional Notes
 
@@ -20,7 +12,7 @@ The python script `gcode-viewer.py` is for looking at gcode. Left and right arro
 
 # Usage
 
-The python script `ChemE-slicer.py` generates a gcode file. Use it with `ChemE-slicer.py [FILE] [OPTION]...` File name defaults to `out.gcode`. Keep in mind that none of the ranges are enforced, they are mostly recomendations. I'm not sure what the safe range of feedrates is, 6000 is the highest I've seen. The software should mostly keep itself from making any illegal moves, but if you make drastic changes or are otherwise worried about it you might want to look at it with `gcode-viewer.py`.
+The python script `ChemE-slicer.py` generates a gcode file. Use it with `ChemE-slicer.py [FILE] [OPTION]...` File name defaults to `out.gcode`. Keep in mind that none of the ranges are enforced, they are mostly recommendations. I'm not sure what the safe range of feedrates is, 6000 is the highest I've seen. The software should mostly keep itself from making any illegal moves, but if you make drastic changes or are otherwise worried about it you might want to look at it with `gcode-viewer.py`.
 
 ### `-m, --monoliths=COUNT`
 
@@ -96,7 +88,7 @@ Sets the maximum printable y coordinate, in millimeters. No restrictions in plac
 
 # Examples
 
-The following 2 commands are identical, they print 4 monoliths with 10mm of spacing between them. They are outputed to a file named `my-monos.gcode`.
+The following 2 commands are identical, they print 4 monoliths with 10mm of spacing between them. They are outputted to a file named `my-monos.gcode`.
 
 `python ChemE-slicer.py my-monos.gcode --monoliths=4 -S=20`
 
