@@ -1,8 +1,8 @@
-screw1Height = 35; A = 35;
-screw4Height = 45; B = 45;
+screw1Height = 44; A = 44;
+screw4Height = 54; B = 54;
 screwWidth = 42.4; C = 42.4;
 screw4Depth = 4.5; D = 4.5;
-cylinderDiameter = 25.5; E = 25.5;
+cylinderDiameter = 24; E = 24;
 nozzleRadius = 10.5; F = 10.5;
 chamferHeight = 5; G = 5;
 chamferToEnd = 36; H = 36;
@@ -13,8 +13,8 @@ screwMinHeight = 9; L = 9;
 screwMaxHeight = 15; M = 15;
 bumpDepth = 3; N = 3;
 bumpDiameter = 9.5; O = 9.5;
-bumpHeight = 57; P = 57;
-bumpHeight2 = 18; Q = 18;
+bumpHeight = 66; P = 66;
+bumpHeight2 = 27; Q = 27;
 dist34 = 14.3; R = 14.3; // might be wrong
 
 syringeZ = (E+9)/2 + 2;
