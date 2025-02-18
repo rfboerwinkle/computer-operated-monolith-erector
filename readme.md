@@ -10,9 +10,13 @@ The machine is a modified Creality Ender-3. When I found it, it was in a non-fun
 
 The python script `gcode-viewer.py` is for looking at gcode. Left and right arrow keys step through the file. Color shows speed, radius shows height. The white circle only shows up for non-movement commands. Fair warning: it's not very user friendly or well written. The image `pictures/very-technical-drawing.png` shows the measurements used in `syringe-holder.scad` (more information on this file format here [https://openscad.org/](https://openscad.org/)). The syringe was a little wobbly, so the paper and rubber bands in the pictures are to shim and clamp it.
 
-# Usage
+# Blob Creation
 
-The python script `ChemE-slicer.py` generates a gcode file. Use it with `ChemE-slicer.py [FILE] [OPTION]...` File name defaults to `out.gcode`. Keep in mind that none of the ranges are enforced, they are mostly recommendations. I'm not sure what the safe range of feedrates is, 6000 is the highest I've seen. The software should mostly keep itself from making any illegal moves, but if you make drastic changes or are otherwise worried about it you might want to look at it with `gcode-viewer.py`.
+The python script `blob-slicer.py` generates a gcode file. Use it with `blob-slicer.py [FILE] [OPTION]...` File name defaults to `out.gcode`.
+
+# Monolith Creation
+
+The python script `monolith-slicer.py` generates a gcode file. Use it with `monolith-slicer.py [FILE] [OPTION]...` File name defaults to `out.gcode`. Keep in mind that none of the ranges are enforced, they are mostly recommendations. I'm not sure what the safe range of feedrates is, 6000 is the highest I've seen. The software should mostly keep itself from making any illegal moves, but if you make drastic changes or are otherwise worried about it you might want to look at it with `gcode-viewer.py`.
 
 ### `-m, --monoliths=COUNT`
 
@@ -90,10 +94,10 @@ Sets the maximum printable y coordinate, in millimeters. No restrictions in plac
 
 The default values are probably what you want. The default gcode file has been generated, and the output is `Monos-V2.gcode` (moved to `examples/Monos-V2.gcode`).
 
-`python3 ChemE-slicer.py Monos-V2.gcode`
+`python3 monlith-slicer.py Monos-V2.gcode`
 
 The following 2 commands are identical, they print 4 monoliths with 10mm of spacing between them. They are outputted to a file named `my-monos.gcode`.
 
-`python3 ChemE-slicer.py my-monos.gcode --monoliths=4 -S=20`
+`python3 monlith-slicer.py my-monos.gcode --monoliths=4 -S=20`
 
-`python3 ChemE-slicer.py my-monos.gcode -m=4 --monolith-spacing=20`
+`python3 monlith-slicer.py my-monos.gcode -m=4 --monolith-spacing=20`

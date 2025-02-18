@@ -7,7 +7,11 @@ import math
 
 out_name = None
 
-# NOTE: There are three main non-printing move commands: Z-move commands, moves internal to monoliths, and moving between monoliths. Because internal moves are so small and it takes time to pressurize / depressurize, the pressure is not turned off for internal moves. If you want it turned off for these moves, uncomment the things labeled "uncomment for internal depressurization:"
+# NOTE: There are three main non-printing move commands: Z-move commands, moves
+# internal to monoliths, and moving between monoliths. Because internal moves
+# are so small and it takes time to pressurize / depressurize, the pressure is
+# not turned off for internal moves. If you want it turned off for these moves,
+# uncomment the things labeled "uncomment for internal depressurization:"
 
 settings = {
   "monoliths": 16, # count
